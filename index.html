@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VOGUE & CO. | Premium Fashion E-Commerce</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+
+    <!-- Loading Spinner -->
+    <div id="loading-spinner" class="spinner-container">
+        <div class="spinner"></div>
+    </div>
+
+    <!-- Toast Notifications Container -->
+    <div id="toast-container" class="toast-container"></div>
+
+    <!-- Top Banner / Notification Bar -->
+    <div class="top-banner">
+        <p>SUMMER SALE IS LIVE: USE CODE <strong class="coupon-code">TRENDY20</strong> FOR 20% OFF! FREE SHIPPING ON ORDERS OVER $100</p>
+    </div>
+
+    <!-- Header / Navigation -->
+    <header class="main-header" id="main-header">
+        <div class="header-container">
+            <a href="#" class="logo">VOGUE & CO.</a>
+            
+            <nav class="nav-menu" id="nav-menu">
+                <ul class="nav-list">
+                    <li><a href="#" class="nav-link active" data-nav="all">Home</a></li>
+                    <li><a href="#" class="nav-link" data-nav="Men">Men</a></li>
+                    <li><a href="#" class="nav-link" data-nav="Women">Women</a></li>
+                    <li><a href="#" class="nav-link" data-nav="Kids">Kids</a></li>
+                    <li><a href="#" class="nav-link" data-nav="Shoes">Shoes</a></li>
+                    <li><a href="#" class="nav-link" data-nav="Accessories">Accessories</a></li>
+                    <li><a href="#" class="nav-link special" data-nav="Sale">Sale</a></li>
+                </ul>
+            </nav>
+
+            <div class="header-actions">
+                <div class="search-box">
+                    <input type="text" id="search-input" placeholder="Search products, brands, tags...">
+                    <button class="search-btn" aria-label="Search">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                    </button>
+                </div>
+
+                <button id="dark-mode-toggle" class="action-btn" aria-label="Toggle Dark Mode">
+                    <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+                    <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:none;"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+                </button>
+
+                <button id="wishlist-toggle" class="action-btn" aria-label="Wishlist">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                    <span class="badge" id="wishlist-count">0</span>
+                </button>
+
+                <button id="cart-toggle" class="action-btn" aria-label="Cart">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+                    <span class="badge" id="cart-count">0</span>
+                </button>
+
+                <button id="mobile-menu-btn" class="action-btn mobile-only" aria-label="Menu">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb-container">
+        <ul class="breadcrumb" id="breadcrumb">
+            <li><a href="#">Home</a></li>
+            <li>Shop</li>
+        </ul>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-bg-animation"></div>
+        <div class="hero-container">
+            <div class="hero-content">
+                <span class="hero-tag">NEW ARRIVALS 2026</span>
+                <h1>Define Your Modern Aesthetic</h1>
+                <p>Discover minimal designs, timeless fabrics, and curated essentials structured for absolute functional luxury.</p>
+                <div class="hero-actions-btns">
+                    <a href="#shop-section" class="btn btn-primary btn-ripple">Shop Collection</a>
+                    <a href="#shop-section" class="btn btn-secondary btn-ripple" id="hero-sale-btn">Season Sale</a>
+                </div>
+            </div>
+            <div class="hero-image-wrapper">
+                <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=800&q=80" alt="Featured Premium Look" class="hero-img">
+            </div>
+        </div>
+    </section>
+
+    <!-- Store Benefits -->
+    <section class="benefits-section">
+        <div class="benefits-grid">
+            <div class="benefit-card">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>
+                <h3>Free Fast Shipping</h3>
+                <p>Complimentary delivery on orders above $100</p>
+            </div>
+            <div class="benefit-card">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+                <h3>24/7 Premium Support</h3>
+                <p>Dedicated assistance for shopping needs</p>
+            </div>
+            <div class="benefit-card">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2"><polyline points="23 4 23 10 17 10"></polyline><polyline points="1 20 1 14 7 14"></polyline><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path></svg>
+                <h3>30-Day Easy Returns</h3>
+                <p>Hassle-free return policy with drop-offs</p>
+            </div>
+            <div class="benefit-card">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                <h3>Secure Transactions</h3>
+                <p>Fully tokenized and encrypted gateways</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Shop Section -->
+    <main class="shop-layout container" id="shop-section">
+        
+        <!-- Sidebar Filters -->
+        <aside class="filter-sidebar" id="filter-sidebar">
+            <div class="sidebar-header">
+                <h2>Filters</h2>
+                <button id="clear-filters-btn" class="clear-btn">Clear All</button>
+                <button id="close-filters-mobile" class="mobile-only close-icon-btn">&times;</button>
+            </div>
+
+            <!-- Filter Categories -->
+            <div class="filter-group">
+                <h3>Gender</h3>
+                <div class="filter-options">
+                    <label class="control checkbox"><input type="checkbox" name="gender" value="Men"><span></span>Men</label>
+                    <label class="control checkbox"><input type="checkbox" name="gender" value="Women"><span></span>Women</label>
+                    <label class="control checkbox"><input type="checkbox" name="gender" value="Kids"><span></span>Kids</label>
+                    <label class="control checkbox"><input type="checkbox" name="gender" value="Unisex"><span></span>Unisex</label>
+                </div>
+            </div>
+
+            <div class="filter-group">
+                <h3>Category</h3>
+                <div class="filter-options scrollable-filter" id="category-filter-options">
+                    <!-- Dynamic Generation -->
+                </div>
+            </div>
+
+            <div class="filter-group">
+                <h3>Price Range</h3>
+                <div class="price-range-wrapper">
+                    <input type="range" id="price-slider" min="0" max="500" value="500">
+                    <div class="price-labels">
+                        <span>$0</span>
+                        <span id="price-slider-val">Max: $500</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="filter-group">
+                <h3>Brand</h3>
+                <div class="filter-options scrollable-filter" id="brand-filter-options">
+                    <!-- Dynamic Generation -->
+                </div>
+            </div>
+
+            <div class="filter-group">
+                <h3>Size</h3>
+                <div class="size-grid-filter">
+                    <button class="size-filter-btn" data-size="XS">XS</button>
+                    <button class="size-filter-btn" data-size="S">S</button>
+                    <button class="size-filter-btn" data-size="M">M</button>
+                    <button class="size-filter-btn" data-size="L">L</button>
+                    <button class="size-filter-btn" data-size="XL">XL</button>
+                    <button class="size-filter-btn" data-size="XXL">XXL</button>
+                </div>
+            </div>
+
+            <div class="filter-group">
+                <h3>Color</h3>
+                <div class="color-palette-filter" id="color-filter-options">
+                    <!-- Dynamic Generation -->
+                </div>
+            </div>
+
+            <div class="filter-group">
+                <h3>Minimum Rating</h3>
+                <div class="filter-options">
+                    <label class="control radio"><input type="radio" name="rating" value="4"><span></span>4★ & above</label>
+                    <label class="control radio"><input type="radio" name="rating" value="3"><span></span>3★ & above</label>
+                    <label class="control radio"><input type="radio" name="rating" value="0" checked><span></span>All Ratings</label>
+                </div>
+            </div>
+
+            <div class="filter-group">
+                <h3>Availability</h3>
+                <div class="filter-options">
+                    <label class="control checkbox"><input type="checkbox" id="filter-stock" value="instock"><span></span>In Stock Only</label>
+                    <label class="control checkbox"><input type="checkbox" id="filter-sale" value="onsale"><span></span>On Sale Only</label>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Product Display Area -->
+        <section class="products-view">
+            <!-- Toolbar control layout -->
+            <div class="products-toolbar">
+                <div class="toolbar-left">
+                    <button id="mobile-filter-trigger" class="btn btn-secondary mobile-only">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"></polygon></svg>
+                        Filters
+                    </button>
+                    <p id="product-results-count">Showing all products</p>
+                </div>
+                
+                <div class="toolbar-right">
+                    <label for="sort-select" class="visually-hidden">Sort Products By</label>
+                    <select id="sort-select" class="sort-dropdown">
+                        <option value="newest">Sort By: Newest Arrivals</option>
+                        <option value="popularity">Sort By: Most Popular</option>
+                        <option value="price-low">Sort By: Price Low → High</option>
+                        <option value="price-high">Sort By: Price High → Low</option>
+                        <option value="rating">Sort By: Highest Rated</option>
+                        <option value="discount">Sort By: Max Discount</option>
+                        <option value="alphabetical">Sort By: Alphabetical A-Z</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Active Applied Tags Display -->
+            <div class="active-tags-container" id="active-tags-container"></div>
+
+            <!-- Products Master Grid -->
+            <div class="products-grid" id="products-container">
+                <!-- Javascript Renders Dynamic Product Cards Content Here -->
+            </div>
+
+            <!-- Empty Results View Placeholder -->
+            <div class="empty-products-view" id="empty-products-view" style="display: none;">
+                <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                <h3>No matching items found</h3>
+                <p>Refine your search metrics, modify prices, or try alternative tag inputs.</p>
+                <button id="reset-filters-empty-btn" class="btn btn-primary">Reset Structural Filters</button>
+            </div>
+        </section>
+    </main>
+
+    <!-- Recently Viewed Products Section -->
+    <section class="recent-viewed-section container">
+        <h2 class="section-title">Recently Viewed</h2>
+        <div class="products-grid standard-row-grid" id="recent-products-container">
+            <!-- Render via local storage state tracking -->
+        </div>
+    </section>
+
+    <!-- Dynamic Promo Banner Grid / Curated Tracks -->
+    <section class="curated-tracks container">
+        <div class="track-card banner-orange">
+            <div class="track-content">
+                <span>LIMITED TIME RUN</span>
+                <h2>Streetwear Essentials</h2>
+                <p>Heavyweight hoodies, custom-fit drop tees, and utilities.</p>
+                <a href="#shop-section" class="track-link" data-filter-tag="Streetwear">Explore Track</a>
+            </div>
+            <img src="https://images.unsplash.com/photo-1556905055-8f358a7a47b2?auto=format&fit=crop&w=400&q=80" alt="Streetwear track">
+        </div>
+        <div class="track-card banner-blue">
+            <div class="track-content">
+                <span>PREMIUM APPARATUS</span>
+                <h2>Chrono & Accent Goods</h2>
+                <p>Luxury timepieces, solid minimalist jewelry, structural leather accents.</p>
+                <a href="#shop-section" class="track-link" data-filter-tag="Luxury">View Essentials</a>
+            </div>
+            <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=400&q=80" alt="Accessories track">
+        </div>
+    </section>
+
+    <!-- Customer Reviews / Social Proof -->
+    <section class="reviews-section container">
+        <h2 class="section-title">The Client Standard</h2>
+        <div class="reviews-grid">
+            <div class="review-card">
+                <div class="rating-stars">★★★★★</div>
+                <p class="review-text">"The structured fit of the heavyweight trench coat exceeded my structural standards. Absolute premium execution."</p>
+                <h4 class="reviewer-name">Marcus V.</h4>
+                <span class="reviewer-verified">Verified Buyer</span>
+            </div>
+            <div class="review-card">
+                <div class="rating-stars">★★★★★</div>
+                <p class="review-text">"Minimalistic delivery timelines matching premium finish quality. This site is my definitive source for accessories."</p>
+                <h4 class="reviewer-name">Helena R.</h4>
+                <span class="reviewer-verified">Verified Buyer</span>
+            </div>
+            <div class="review-card">
+                <div class="rating-stars">★★★★☆</div>
+                <p class="review-text">"Clean packaging, perfect responsive support on size swaps. The premium sneakers fit exactly true to form measurements."</p>
+                <h4 class="reviewer-name">Julian K.</h4>
+                <span class="reviewer-verified">Verified Buyer</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Top Brands Grid Showcase -->
+    <section class="brands-section container">
+        <h2 class="section-title">Partnered Ateliers</h2>
+        <div class="brands-marquee">
+            <div class="brand-logo-item">AESTHETE</div>
+            <div class="brand-logo-item">CHRONO LAB</div>
+            <div class="brand-logo-item">KINETIC APPAREL</div>
+            <div class="brand-logo-item">NORDIC FORM</div>
+            <div class="brand-logo-item">CORE STUDIOS</div>
+        </div>
+    </section>
+
+    <!-- FAQ Accordion Module -->
+    <section class="faq-section container">
+        <h2 class="section-title">Frequently Asked Questions</h2>
+        <div class="faq-accordion-container">
+            <div class="faq-item">
+                <button class="faq-trigger">Are item images representative of exact physical product coloring? <span class="faq-icon">+</span></button>
+                <div class="faq-panel"><p>Yes. All assets are styled under studio lighting representing high-fidelity physical calibrations. Color tracking holds true to standard display spaces.</p></div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-trigger">How do I verify the authenticity of premium luxury chronographs? <span class="faq-icon">+</span></button>
+                <div class="faq-panel"><p>Every timepiece ships with structural atelier verification identifiers and local global warranty cards directly stored inside base retail cases.</p></div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-trigger">What processing pipelines handle global logistical fulfillment? <span class="faq-icon">+</span></button>
+                <div class="faq-panel"><p>Orders are batched, validated, packed through automated workflows, and injected into express courier pipelines within 24 hours of confirmation.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Capture Section -->
+    <section class="newsletter-section">
+        <div class="newsletter-container container">
+            <h2>Subscribe for Priority Architecture</h2>
+            <p>Join our ledger list for priority access architectural collection updates, inner-tier sales, and direct design drops.</p>
+            <form id="newsletter-form" class="newsletter-form">
+                <input type="email" placeholder="Enter professional email address" required aria-label="Email Field">
+                <button type="submit" class="btn btn-primary btn-ripple">Secure Ledger Access</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Slide-Out Shopping Cart Sidebar Panel Menu Container -->
+    <div class="cart-sidebar-overlay" id="cart-overlay">
+        <div class="cart-sidebar-panel">
+            <div class="cart-panel-header">
+                <h2>Your Bag (<span id="cart-panel-count">0</span>)</h2>
+                <button id="cart-close-btn" class="close-icon-btn" aria-label="Close Cart">&times;</button>
+            </div>
+
+            <!-- Dynamic Cart Content Body area -->
+            <div class="cart-panel-body" id="cart-items-wrapper">
+                <!-- Javascript will inject entries here -->
+            </div>
+
+            <!-- Structural Bottom Segment Calculations Block -->
+            <div class="cart-panel-footer">
+                <div class="coupon-activation-box">
+                    <input type="text" id="coupon-input" placeholder="Enter coupon code (e.g. TRENDY20)">
+                    <button id="apply-coupon-btn" class="btn btn-secondary">Apply</button>
+                </div>
+                <div id="active-coupon-status" class="coupon-status-text"></div>
+                
+                <hr class="divider">
+
+                <div class="calc-row"><span>Subtotal:</span><span id="calc-subtotal">$0.00</span></div>
+                <div class="calc-row text-discount" id="row-discount" style="display:none;"><span>Coupon Discount:</span><span id="calc-discount">-$0.00</span></div>
+                <div class="calc-row"><span>Tax (18% GST):</span><span id="calc-tax">$0.00</span></div>
+                <div class="calc-row"><span>Shipping:</span><span id="calc-shipping">$0.00</span></div>
+                <hr class="divider">
+                <div class="calc-row grand-total"><span>Grand Total:</span><span id="calc-total">$0.00</span></div>
+
+                <div class="cart-footer-actions">
+                    <button id="checkout-trigger-btn" class="btn btn-primary btn-block btn-ripple">Proceed to Secure Checkout</button>
+                    <button id="clear-cart-trigger-btn" class="btn btn-text-link">Clear Entire Bag</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Wishlist Sidebar Overlay Panel View -->
+    <div class="cart-sidebar-overlay" id="wishlist-overlay">
+        <div class="cart-sidebar-panel">
+            <div class="cart-panel-header">
+                <h2>Your Wishlist (<span id="wishlist-panel-count">0</span>)</h2>
+                <button id="wishlist-close-btn" class="close-icon-btn" aria-label="Close Wishlist">&times;</button>
+            </div>
+            <div class="cart-panel-body" id="wishlist-items-wrapper">
+                <!-- Javascript will render collection array components -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Product Quick View Details Modal Window Wrapper Layout -->
+    <div class="modal-backdrop-overlay" id="product-modal">
+        <div class="modal-surface-container large-modal">
+            <button id="product-modal-close" class="modal-close-corner-btn" aria-label="Close Modal">&times;</button>
+            
+            <div class="product-modal-grid">
+                <!-- Left structural visual gallery component module -->
+                <div class="modal-gallery-column">
+                    <div class="main-zoom-display-frame">
+                        <img id="modal-main-img" src="" alt="Primary Active Modal Image View" class="zoom-hover-effect">
+                    </div>
+                    <div class="modal-thumbnails-strip" id="modal-thumbnails-container">
+                        <!-- Javascript hooks items arrays here -->
+                    </div>
+                </div>
+
+                <!-- Right structural copy details context configuration column -->
+                <div class="modal-details-column">
+                    <span id="modal-brand" class="product-card-brand">BRAND ATELIER</span>
+                    <h2 id="modal-title">Product Title Configuration Label</h2>
+                    <p id="modal-category" class="product-modal-category-label">Category</p>
+                    
+                    <div class="modal-rating-row">
+                        <span id="modal-stars-metrics" class="stars">★★★★★</span>
+                        <span id="modal-rating-val">(4.8)</span>
+                        <span id="modal-stock-badge" class="stock-badge-pill instock">In Stock</span>
+                    </div>
+
+                    <div class="modal-pricing-row">
+                        <span id="modal-price-current" class="current-price">$0.00</span>
+                        <del id="modal-price-original" class="original-price">$0.00</del>
+                        <span id="modal-discount-tag" class="discount-badge">0% OFF</span>
+                    </div>
+
+                    <p id="modal-description" class="modal-product-narrative-para">Structural item description asset context goes here detailing yarn specifications and layout configurations.</p>
+
+                    <div class="spec-selectors">
+                        <div class="selector-block">
+                            <h4>Select Dimensional Fit (Size):</h4>
+                            <div class="size-options-flex" id="modal-size-container">
+                                <!-- Dynamic -->
+                            </div>
+                        </div>
+
+                        <div class="selector-block">
+                            <h4>Select Material Color Calibration:</h4>
+                            <div class="color-options-flex" id="modal-color-container">
+                                <!-- Dynamic -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="modal-functional-footer-row">
+                        <div class="quantity-stepper-box">
+                            <button id="modal-qty-dec" aria-label="Decrease quantity">-</button>
+                            <input type="number" id="modal-qty-input" value="1" min="1" readonly>
+                            <button id="modal-qty-inc" aria-label="Increase quantity">+</button>
+                        </div>
+                        
+                        <button id="modal-add-to-cart-btn" class="btn btn-primary btn-ripple flex-grow-btn">Add To Bag</button>
+                        <button id="modal-wishlist-toggle-btn" class="btn btn-secondary action-btn-square" aria-label="Add to Wishlist">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                        </button>
+                    </div>
+
+                    <div class="modal-extra-metadata-footer">
+                        <p><strong>Fabric Specification Matrix:</strong> <span id="modal-material">100% Cotton Base Linings</span></p>
+                        <p><strong>Tracking Logistics:</strong> Fully documented global identification tracing protocol available.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Fake Checkout Transaction Simulator Modal Overlay Window -->
+    <div class="modal-backdrop-overlay" id="checkout-modal">
+        <div class="modal-surface-container standard-modal">
+            <button id="checkout-modal-close" class="modal-close-corner-btn" aria-label="Close Checkout">&times;</button>
+            <h2>Secure Gateway Processing</h2>
+            <p class="modal-subtitle">Provide delivery credentials to execute transactional pipeline calculations.</p>
+            
+            <form id="checkout-form-pipeline" class="checkout-form-layout">
+                <div class="form-row-split">
+                    <div class="input-wrapper">
+                        <label for="bill-fname">First Name *</label>
+                        <input type="text" id="bill-fname" required>
+                    </div>
+                    <div class="input-wrapper">
+                        <label for="bill-lname">Last Name *</label>
+                        <input type="text" id="bill-lname" required>
+                    </div>
+                </div>
+                <div class="input-wrapper">
+                    <label for="bill-address">Destination Logistics Address *</label>
+                    <input type="text" id="bill-address" placeholder="Street layout address, Suite, Apartment floor metrics" required>
+                </div>
+                <div class="form-row-split">
+                    <div class="input-wrapper">
+                        <label for="bill-city">City *</label>
+                        <input type="text" id="bill-city" required>
+                    </div>
+                    <div class="input-wrapper">
+                        <label for="bill-zip">Postal Index Routing Code *</label>
+                        <input type="text" id="bill-zip" required>
+                    </div>
+                </div>
+                <div class="input-wrapper">
+                    <label for="bill-phone">Mobile Communication Contact Line *</label>
+                    <input type="tel" id="bill-phone" placeholder="+1 (555) 000-0000" required>
+                </div>
+
+                <div class="payment-method-segment">
+                    <h4>Tokenized Payment Architecture Option</h4>
+                    <div class="payment-selection-box">
+                        <label class="control radio"><input type="radio" name="payment-opt" value="cc" checked><span></span>Credit Card / Secure Debit Asset</label>
+                        <label class="control radio"><input type="radio" name="payment-opt" value="cod"><span></span>Cash/Collect On Delivery Logistics</label>
+                    </div>
+                </div>
+
+                <div class="checkout-total-summary-sticky">
+                    <p>Total Charge Volume: <strong id="checkout-sum-total">$0.00</strong></p>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-block btn-ripple">Authorize & Place Order Order</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Order Pipeline Processing Success Feedback Modal Popup Box -->
+    <div class="modal-backdrop-overlay" id="order-success-modal">
+        <div class="modal-surface-container compact-modal text-center-alignment">
+            <div class="success-animation-icon-circle">
+                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            </div>
+            <h2>Transaction Authenticated</h2>
+            <p>Logistics tracking manifest successfully generated. Your unique structural token routing hash is:</p>
+            <div class="order-id-token-block" id="success-order-token">VGC-839201-9482</div>
+            <p class="neutral-muted-text">An invoice listing structural components and material attributes is routing to your registered communication server link.</p>
+            <button id="success-close-action-btn" class="btn btn-primary btn-block">Return To Master Registry</button>
+        </div>
+    </div>
+
+    <!-- Back To Top Core Floating Action Button Icon Module -->
+    <button id="back-to-top-btn" class="back-to-top-btn" aria-label="Scroll Back To Top">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
+    </button>
+
+    <!-- Master Global Semantic Context Layout Footer Block Component -->
+    <footer class="master-global-footer">
+        <div class="footer-primary-grid container">
+            <div class="footer-brand-col">
+                <h3>VOGUE & CO.</h3>
+                <p>Architectural premium layout fashion structures serving minimalist design methodologies across international supply lines.</p>
+                <div class="social-links-flex">
+                    <a href="#" aria-label="Instagram Handle Link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></a>
+                    <a href="#" aria-label="Twitter Platform Link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg></a>
+                    <a href="#" aria-label="Facebook Link Context"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></a>
+                </div>
+            </div>
+
+            <div class="footer-links-col">
+                <h4>System Layout Links</h4>
+                <ul>
+                    <li><a href="#shop-section">Master Apparel Grid</a></li>
+                    <li><a href="#">New Season Catalogue</a></li>
+                    <li><a href="#shop-section">Premium Accents Track</a></li>
+                    <li><a href="#shop-section">Discounts Clearance Ledger</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-links-col">
+                <h4>Customer Logistics</h4>
+                <ul>
+                    <li><a href="#">Track Active Transit</a></li>
+                    <li><a href="#">Returns & Structural Replacements</a></li>
+                    <li><a href="#">Sizing Dimensions Matrix</a></li>
+                    <li><a href="#">Secure Wire Transfers FAQ</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-links-col">
+                <h4>The Corporate House</h4>
+                <ul>
+                    <li><a href="#">Our Materials Integrity Manifesto</a></li>
+                    <li><a href="#">Sustainability Verification Ledger</a></li>
+                    <li><a href="#">Corporate Supply Operations</a></li>
+                    <li><a href="#">Careers in Spatial Design</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-secondary-baseline container">
+            <p>&copy; 2026 VOGUE & CO. Operational Engineering Laboratory. All Rights Reserved.</p>
+            <div class="payment-icons-row">
+                <span class="pay-badge">VISA</span>
+                <span class="pay-badge">MASTERCARD</span>
+                <span class="pay-badge">AMEX</span>
+                <span class="pay-badge">APPLE PAY</span>
+                <span class="pay-badge">STRIPE SECURE</span>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
